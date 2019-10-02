@@ -8,7 +8,7 @@ from helper import *
 
 
 
-file_path = "data-samples/python-file1.py"
+file_path = "data-samples/python-file2.py"
 total_lines = 0
 line_num_single_comments = []
 total_single_comments = 0
