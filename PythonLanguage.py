@@ -1,4 +1,4 @@
-import Language
+from Language import Language
 
 
 class PythonLanguage(Language):
@@ -7,5 +7,5 @@ class PythonLanguage(Language):
     """
 
     def comment_counter(self):
-        pass
+        print("2 comments")
 
