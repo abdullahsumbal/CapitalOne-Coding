@@ -4,7 +4,7 @@ Author: Muhammad Abdullah Sumbal
 count comments.
 """
 import re
-from helper import read_file
+from old_code.helper import read_file
 
 file_path = "data-samples/python-file2.py"
 total_lines = 0

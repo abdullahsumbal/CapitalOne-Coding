@@ -8,5 +8,5 @@ class Language(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def comment_counter(self):
+    def get_comment_info(self):
         pass

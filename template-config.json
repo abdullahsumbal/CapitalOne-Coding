@@ -1,0 +1,11 @@
+{
+  "source_directory": "data-samples",
+  "languages": {
+    "python": {
+      "ext": ".py"
+    },
+    "java": {
+      "ext": ".java"
+    }
+  }
+}
