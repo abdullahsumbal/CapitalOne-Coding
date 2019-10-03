@@ -3,8 +3,11 @@ import json
 import argparse
 from helper import *
 from CLanguage import CLanguage
+from JSLanguage import JSLanguage
 from JavaLanguage import JavaLanguage
+from CPlusLanguage import CPlusLanguage
 from PythonLanguage import PythonLanguage
+from CSharpeLanguage import CSharpeLanguage
 from LanguageInformation import LanguageInformation
 
 # args parser
@@ -48,8 +51,14 @@ if __name__ == "__main__":
             info.language = PythonLanguage(file_path)
         elif language_name == "java":
             info.language = JavaLanguage(file_path)
-        elif language_name in ["c", "cplus", "csharp", "js"]:
+        elif language_name == "c":
             info.language = CLanguage(file_path)
+        elif language_name == "c++":
+            info.language = CPlusLanguage(file_path)
+        elif language_name == "c#":
+            info.language = CSharpeLanguage(file_path)
+        elif language_name == "js":
+            info.language = JSLanguage(file_path)
 
         info.get_comment_info()
         print(f"File Name: {file_path}")

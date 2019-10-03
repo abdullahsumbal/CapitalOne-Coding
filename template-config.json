@@ -7,13 +7,13 @@
     "java": {
       "ext": ".java"
     },
-    "cplus": {
+    "c++": {
       "ext": ".cpp"
     },
     "c": {
       "ext": ".c"
     },
-    "csharp": {
+    "c#": {
       "ext": ".cs"
     },
     "js": {
