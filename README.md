@@ -105,5 +105,6 @@ I used the strategy pattern because I wanted to use different variants of an `ge
 ### Important notes:
 Comment formatting for C, Java, C++, C# and Javascript is similar. Therefore I implemented a `get_comment_info_common` function in `Language` interface class. This saves from code duplication.
 It is important to have implementation of languages with similar comment formatting because it will help in scalability of the project. 
-For example, what if we wanted to implement a function for counting loops for every language. 
+For example, what if we wanted to implement a function for counting loops for every language. This project is capable of doing more analysis then just
+counting comments.
  
