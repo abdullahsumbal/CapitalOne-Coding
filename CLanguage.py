@@ -8,10 +8,11 @@ class CLanguage(Language):
 
     def __init__(self, file_path):
         self._file_path = file_path
+        super().__init__()
 
     def get_comment_info(self):
         """
         Count single line comments, block comments and TODOs
         :return: a dictionary of the comment mentioned mentioned above
         """
-        return self.get_comment_info_generic()
+        return self.get_comment_info_common()

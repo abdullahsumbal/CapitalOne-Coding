@@ -40,7 +40,9 @@ if __name__ == "__main__":
     map_ext_to_lang = get_acceptable_ext_and_lang(languages)
     acceptance_files_and_lang = get_acceptance_source_files(source_files, map_ext_to_lang)
 
+    # initialize languageInformation class and reuse object
     info = LanguageInformation()
+    # call language classes
     for file_path, language_name in acceptance_files_and_lang:
         if language_name == "python":
             info.language = PythonLanguage(file_path)
@@ -49,5 +51,7 @@ if __name__ == "__main__":
         elif language_name in ["c", "cplus", "csharp", "js"]:
             info.language = CLanguage(file_path)
 
-        comment_info = info.get_comment_info()
-        print(file_path, comment_info)
+        info.get_comment_info()
+        print(f"File Name: {file_path}")
+        print(info.language)
+

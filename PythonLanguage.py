@@ -9,25 +9,17 @@ class PythonLanguage(Language):
 
     def __init__(self, file_path):
         self._file_path = file_path
+        super().__init__()
 
     def get_comment_info(self):
         """
         Count single line comments, block comments and TODOs
         :return: a dictionary of the comment mentioned mentioned above
         """
-        # dictionary to keep track of the single, multi line comments
-        # and also TODOs in the comments
-        comment_info = {
-                        "total_lines": 0,
-                        "total_single_comments": 0,
-                        "total_block_comments": 0,
-                        "total_block_comments_lines": 0,
-                        "total_TODOs": 0
-                        }
 
         # get total_lines
         file_pointer = self.load_file()
-        comment_info["total_lines"] = len(file_pointer.readlines())
+        self.comment_info["total_lines"] = len(file_pointer.readlines())
         file_pointer.seek(0)
 
         # default values
@@ -45,16 +37,16 @@ class PythonLanguage(Language):
 
             # if the current token is a comment, lok for TODOs and add them
             if token_type == COMMENT:
-                comment_info["total_TODOs"] += self.count_TODOs(token_str)
+                self.comment_info["total_TODOs"] += self.count_TODOs(token_str)
 
             # if previous token is a comment and current token is not a comment
             # then either the previous comment is single line comment or
             # a part of a multi-line comment
             if previous_token_type == COMMENT and token_type != COMMENT:
                 if is_block_comment:
-                    comment_info["total_block_comments"] += 1
+                    self.comment_info["total_block_comments"] += 1
                 else:
-                    comment_info["total_single_comments"] += 1
+                    self.comment_info["total_single_comments"] += 1
 
                 # reset block comment checker
                 is_block_comment = False
@@ -63,19 +55,17 @@ class PythonLanguage(Language):
             # block comment
             elif previous_token_type == COMMENT and token_type == COMMENT:
                 # add 2 to include the previous comment line
-                comment_info["total_block_comments_lines"] += 2 if not is_block_comment else 1
+                self.comment_info["total_block_comments_lines"] += 2 if not is_block_comment else 1
                 is_block_comment = True
-
-
             previous_token_type = token_type
 
         # check for the last token is it a comment
         if previous_token_type == COMMENT:
             if is_block_comment:
-                comment_info["total_block_comments"] += 1
+                self.comment_info["total_block_comments"] += 1
             else:
-                comment_info["total_single_comments"] += 1
+                self.comment_info["total_single_comments"] += 1
 
-        return comment_info
+        return self.comment_info
 
 
