@@ -6,6 +6,18 @@
     },
     "java": {
       "ext": ".java"
+    },
+    "cplus": {
+      "ext": ".cpp"
+    },
+    "c": {
+      "ext": ".c"
+    },
+    "csharp": {
+      "ext": ".cs"
+    },
+    "js": {
+      "ext": ".js"
     }
   }
 }

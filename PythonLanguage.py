@@ -10,21 +10,6 @@ class PythonLanguage(Language):
     def __init__(self, file_path):
         self._file_path = file_path
 
-    def load_file(self):
-        """
-        load file
-        :return: file pointer
-        """
-        return open(self._file_path, 'r')
-
-    def count_TODOs(self, line):
-        """
-        find TODOs in the line
-        :param line: a source code line
-        :return: number of TODOs found
-        """
-        return len(re.findall("TODO:", line))
-
     def get_comment_info(self):
         """
         Count single line comments, block comments and TODOs

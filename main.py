@@ -2,8 +2,9 @@ import sys
 import json
 import argparse
 from helper import *
+from CLanguage import CLanguage
+from JavaLanguage import JavaLanguage
 from PythonLanguage import PythonLanguage
-from CommonLanguages import CommonLanguages
 from LanguageInformation import LanguageInformation
 
 # args parser
@@ -44,8 +45,9 @@ if __name__ == "__main__":
         if language_name == "python":
             info.language = PythonLanguage(file_path)
         elif language_name == "java":
-            info.language = CommonLanguages(file_path)
+            info.language = JavaLanguage(file_path)
+        elif language_name in ["c", "cplus", "csharp", "js"]:
+            info.language = CLanguage(file_path)
 
         comment_info = info.get_comment_info()
-
         print(file_path, comment_info)
