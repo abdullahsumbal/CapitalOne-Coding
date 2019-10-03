@@ -1,5 +1,5 @@
-import glob
 import os
+import glob
 
 
 def get_files_in_directory(source_directory):

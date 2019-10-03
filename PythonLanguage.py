@@ -1,6 +1,6 @@
 from Language import Language
-import re
 from tokenize import generate_tokens, COMMENT, NL, ENDMARKER
+
 
 class PythonLanguage(Language):
     """

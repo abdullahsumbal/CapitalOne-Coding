@@ -1,5 +1,4 @@
 from Language import Language
-import re
 
 
 class JavaLanguage(Language):
