@@ -3,6 +3,7 @@ import json
 import argparse
 from helper import *
 from PythonLanguage import PythonLanguage
+from CommonLanguages import CommonLanguages
 from LanguageInformation import LanguageInformation
 
 # args parser
@@ -43,8 +44,8 @@ if __name__ == "__main__":
         if language_name == "python":
             info.language = PythonLanguage(file_path)
         elif language_name == "java":
-            info.language = PythonLanguage()
+            info.language = CommonLanguages(file_path)
 
         comment_info = info.get_comment_info()
 
-        print(comment_info)
+        print(file_path, comment_info)
