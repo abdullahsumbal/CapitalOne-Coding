@@ -1,4 +1,5 @@
 import abc
+import re
 
 class Language(metaclass=abc.ABCMeta):
     """
@@ -10,3 +11,11 @@ class Language(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_comment_info(self):
         pass
+
+    def count_TODOs(self, line):
+        """
+        find TODOs in the line
+        :param line: a source code line
+        :return: number of TODOs found
+        """
+        return len(re.findall("TODO:", line))
