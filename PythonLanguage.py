@@ -11,12 +11,25 @@ class PythonLanguage(Language):
         self._file_path = file_path
 
     def load_file(self):
+        """
+        load file
+        :return: file pointer
+        """
         return open(self._file_path, 'r')
 
     def count_TODOs(self, line):
+        """
+        find TODOs in the line
+        :param line: a source code line
+        :return: number of TODOs found
+        """
         return len(re.findall("TODO:", line))
 
     def get_comment_info(self):
+        """
+        Count single line comments, block comments and TODOs
+        :return: a dictionary of the comment mentioned mentioned above
+        """
         # dictionary to keep track of the single, multi line comments
         # and also TODOs in the comments
         comment_info = {
@@ -27,12 +40,17 @@ class PythonLanguage(Language):
                         "total_TODOs": 0
                         }
 
+        # get total_lines
+        file_pointer = self.load_file()
+        comment_info["total_lines"] = len(file_pointer.readlines())
+        file_pointer.seek(0)
+
         # default values
         previous_token_type = NL
         is_block_comment = False
 
         # loop over each token
-        for tok in generate_tokens(self.load_file().readline):
+        for tok in generate_tokens(file_pointer.readline):
             token_type = tok[0]
             token_str = tok[1]
 
