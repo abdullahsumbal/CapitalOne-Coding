@@ -3,8 +3,7 @@ Author: Muhammad Abdullah Sumbal
 
 count comments.
 """
-import re
-from helper import *
+from old_code.helper import *
 
 
 
