@@ -30,7 +30,7 @@ The project can count comments and TODOs for the following languages:
 ### Installation
 There are no requirements for this project.
 
-Note: In future, If there are any dependencies, Please them in the `requirements.txt` and use the following command to install.
+Note: In future, If there are any dependencies, please add them in the `requirements.txt` file and use the following command to install.
 ```buildoutcfg
 conda install -c conda-forge --file requirements.txt
 
@@ -40,10 +40,10 @@ pip install -r requirements.txt
 
 ```
 ### Run Application 
-The application takes in a configuration json file as argument. In this configuration file, 
-you can define allowed language and their extensions and also a path to 
+The application takes in a configuration json file as an argument. In this configuration file, 
+you can define allowed languages and their extensions and also a path to 
 source code directory. There is a template configuration placed in the root folder called 
-[template-config.json](template-config.json).If you do not provide any arguments, the 
+[template-config.json](template-config.json). If you do not provide any argument, the 
 program takes [template-config.json](template-config.json) as a default configuration file. 
 Please point the `source_directory` value in the configuration file to the desired source 
 file directory.
@@ -77,9 +77,10 @@ The original class, called `LanguageInformation`, must have a field for storing 
 
 The `LanguageInformation` isn’t responsible for selecting an appropriate language to get the comment info. Instead, the client passes the desired strategy (e.g. `JavaLanguage`) to the `LanguageInformation`. In fact, the `LanguageInformation` doesn’t know much about strategies. It works with all strategies through the same generic interface, which only exposes a single method for triggering the algorithm encapsulated within the selected strategy.
 
-I used the strategy pattern because I wanted to use different variants of an `get_comment_info` within an object and be able to switch from one `get_comment_info` to another during runtime.
+I used the strategy pattern because I wanted to use different variants of an `get_comment_info` within an object and be able to switch from one `get_comment_info` to another during runtime depending file extension.
 
 ### Important notes:
 Comment formatting for C, Java, C++, C# and Javascript is similar. Therefore I implemented a `get_comment_info_common` function in `Language` interface class. This saves from code duplication.
-It is important to have implementation of languages with similar comment formatting because it will help in scalability of project. For example, what if we wanted to implement a function for counting the use the for loops for every language. 
+It is important to have implementation of languages with similar comment formatting because it will help in scalability of the project. 
+For example, what if we wanted to implement a function for counting loops for every language. 
  
