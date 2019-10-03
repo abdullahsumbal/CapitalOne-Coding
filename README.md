@@ -66,6 +66,17 @@ optional arguments:
                         provide an config file (default: template-config.json)
 
 ```
+### How it works
+The input to the program is configuration file. The `source_directory` variable contains the address of the source code files. The program will go inside the
+`source_directory` and get grab all the files. Then, it will filter files with extension defined in the configuration file. All filtered files go to
+their language specific implementation to get comments and TODOs counts.
+
+The program is able to complex cases such as 
+
+```buildoutcfg
+"/* This is not a comment because it is in a string */"
+``` 
+
 ### Program Architecture
 The project uses the strategy design pattern. The image below shows the architecture of the program.
 
