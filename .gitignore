@@ -1,4 +1,6 @@
 .idea
-data-samples/
+data-samples/*
 old_code/
 __pycache__/
+
+!data-samples/README.md
