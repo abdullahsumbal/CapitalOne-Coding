@@ -1,6 +1,6 @@
 # CapitalOne-Coding
 
-This repo contains code to count simple line comments, block comments, lines of block comment and TODOs within comments. Link to the Technical Assessment can be found [here](www.abdullahsumbal.com/doc/capital-one.pdf).
+This repo contains code to count single line comments, block comments, lines of block comment and TODOs within comments. Link to the Technical Assessment can be found [here](www.abdullahsumbal.com/doc/capital-one.pdf).
 
 The project can count comments and TODOs for the following languages:
 
