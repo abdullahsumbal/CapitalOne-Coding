@@ -67,15 +67,27 @@ optional arguments:
 
 ```
 ### How it works
-The input to the program is configuration file. The `source_directory` variable contains the address of the source code files. The program will go inside the
-`source_directory` and get grab all the files. Then, it will filter files with extension defined in the configuration file. All filtered files go to
-their language specific implementation to get comments and TODOs counts.
+The input to the program is a configuration file. The `source_directory` variable contains the address of the source code files. The program will go inside the
+`source_directory` and get grab all the files. Then, it will filter files with extension defined in the configuration file. All filtered files will 
+go to their language specific implementation to get comments and TODOs counts.
 
 The program is able to complex cases such as 
 
 ```buildoutcfg
 "/* This is not a comment because it is in a string */"
 ``` 
+
+The program has the following output format:
+```buildoutcfg
+File Name: data-samples\cplus-file.cpp
+Total # of lines: 28
+Total # of comment lines: 8
+Total # of single line comments: 1
+Total # of comment lines within block comments: 7
+Total # of block line comments: 2
+Total # of TODO’s: 1
+
+```
 
 ### Program Architecture
 The project uses the strategy design pattern. The image below shows the architecture of the program.
